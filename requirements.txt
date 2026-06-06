@@ -1,0 +1,10 @@
+Langchain
+Langchain-core
+Langchain-community
+pypdf
+pymupdf
+sentence-transformers
+faiss-cpu
+chromadb
+pillow
+
