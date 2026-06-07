@@ -9,3 +9,7 @@ wheels/
 # Virtual environments
 .venv
 .env
+
+# Data and vector databases
+data/
+notebook/multimodal_sample.pdf
