@@ -42,7 +42,7 @@ This repository is structured as a progressive learning path to master RAG. Belo
 
 ---
 
-## 🛠️ System Architecture
+##  System Architecture
 
 ```mermaid
 graph TD
@@ -65,7 +65,7 @@ graph TD
 
 ---
 
-## 📊 Deep-Dive: Core Technologies & Advantages
+##  Deep-Dive: Core Technologies & Advantages
 
 ### 1. Joint Vector Space (CLIP) vs. Traditional Search (TF-IDF / BM25)
 
