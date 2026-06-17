@@ -1,4 +1,4 @@
-# 🤖 RAG Mastery: Advanced Document & Multimodal Pipelines
+#  RAG Mastery: Advanced Document & Multimodal Pipelines
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![LangChain](https://img.shields.io/badge/LangChain-1.3%2B-green?logo=chainlink&logoColor=white)](https://langchain.com/)
@@ -11,18 +11,18 @@ Welcome to **RAG Mastery**, a progressive portfolio demonstrating the constructi
 
 ---
 
-## 📂 Repository Structure & Technical Specifications
+##  Repository Structure & Technical Specifications
 
 This repository is structured as a progressive learning path to master RAG. Below are the technical breakdowns of each notebook:
 
-### 1. 📘 `document.ipynb` (Foundational)
+### 1.  `document.ipynb` (Foundational)
 *   **Purpose**: Introduces basic document data structures and filesystem parsing in LangChain.
 *   **Key APIs**: `TextLoader`, `DirectoryLoader` (LangChain Community).
 *   **Technical Specifications**:
     *   **Data Structures**: Wraps raw text content and files into LangChain `Document` schema (with custom metadata dictionary tags: `source`, `file_type`).
     *   **Parsing Scope**: Handles plain text files (`.txt`), teaching recursive directory scanning using glob patterns (`**/*.txt`).
 
-### 2. 📙 `pdf_loader.ipynb` (Intermediate - Text-based RAG)
+### 2.  `pdf_loader.ipynb` (Intermediate - Text-based RAG)
 *   **Purpose**: Implements a complete production-grade semantic text search and generation pipeline.
 *   **Key APIs**: `PyPDFLoader`, `RecursiveCharacterTextSplitter`, `SentenceTransformer` (`all-MiniLM-L6-v2`), `chromadb`, `ChatGroq`.
 *   **Technical Specifications**:
@@ -31,7 +31,7 @@ This repository is structured as a progressive learning path to master RAG. Belo
     *   **Vector DB Indexing**: Persisted ChromaDB collection using **L2 (Euclidean) distance** space mapping.
     *   **Text LLM Generation**: Groq-hosted `llama-3.1-8b-instant` (Context window: **128K tokens**, Temperature: `0.1` for high factual accuracy).
 
-### 3. 📕 `multimodal-rag-pdf-with-images.ipynb` (Advanced - Multimodal RAG)
+### 3.  `multimodal-rag-pdf-with-images.ipynb` (Advanced - Multimodal RAG)
 *   **Purpose**: Builds a unified vector store to index and retrieve both text blocks and images, feeding them to a Vision LLM.
 *   **Key APIs**: `fitz` (PyMuPDF), `CLIPModel` / `CLIPProcessor` (`openai/clip-vit-base-patch32`), `FAISS`, `ChatGroq`.
 *   **Technical Specifications**:
@@ -85,7 +85,7 @@ graph TD
 
 ---
 
-## ⚙️ Setup & Installation Instructions
+##  Setup & Installation Instructions
 
 ### 1. Clone the Project
 ```bash
@@ -119,16 +119,16 @@ jupyter notebook
 
 ---
 
-## ⚠️ Troubleshooting & FAQ
+##  Troubleshooting & FAQ
 
-#### 🔍 Issue: `Error code: 400 - model_decommissioned`
+####  Issue: `Error code: 400 - model_decommissioned`
 *   **Cause**: Groq frequently updates its preview model catalogs. Previous model IDs like `llama-3.2-11b-vision-preview` are decommissioned.
 *   **Solution**: Ensure your notebook uses **`meta-llama/llama-4-scout-17b-16e-instruct`** for multimodal vision queries, and **`llama-3.1-8b-instant`** for standard text queries.
 
-#### 📁 Issue: `FileNotFoundError: PDF file not found at: multimodal_sample.pdf`
+####  Issue: `FileNotFoundError: PDF file not found at: multimodal_sample.pdf`
 *   **Cause**: The pipeline is running in a directory where the target PDF file is missing.
 *   **Solution**: Make sure you copy your target PDF to the notebook directory and name it `multimodal_sample.pdf`, or update the `pdf_path` variable in Phase 3.
 
-#### 🧠 Issue: `OutOfMemoryError` or High CPU Usage during CLIP Loading
+####  Issue: `OutOfMemoryError` or High CPU Usage during CLIP Loading
 *   **Cause**: The Hugging Face `transformers` library loads CLIP weights (~600MB) into memory. On machines without a dedicated NVIDIA GPU, it defaults to CPU calculation which can be slower.
 *   **Solution**: CLIP runs fine on modern CPUs. To improve performance, verify that PyTorch is configured correctly or run with a smaller chunk size to reduce parallel embedding calls.
